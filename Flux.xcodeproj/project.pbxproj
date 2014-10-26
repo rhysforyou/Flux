@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		577BAEA819FCDD0F00FE46A5 /* WaybackCDXEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 577BAEA719FCDD0F00FE46A5 /* WaybackCDXEntry.m */; };
 		57C4390719FC863500FEF83B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C4390619FC863500FEF83B /* main.m */; };
 		57C4390A19FC863600FEF83B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C4390919FC863600FEF83B /* AppDelegate.m */; };
 		57C4390D19FC863600FEF83B /* Flux.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57C4390B19FC863600FEF83B /* Flux.xcdatamodeld */; };
@@ -31,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		338E091176878C0EA43CCD3F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		577BAEA619FCDD0F00FE46A5 /* WaybackCDXEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaybackCDXEntry.h; sourceTree = "<group>"; };
+		577BAEA719FCDD0F00FE46A5 /* WaybackCDXEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaybackCDXEntry.m; sourceTree = "<group>"; };
 		57C4390119FC863500FEF83B /* Flux.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flux.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57C4390519FC863500FEF83B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57C4390619FC863500FEF83B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -70,6 +73,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		577BAEA519FCDCD700FE46A5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				577BAEA619FCDD0F00FE46A5 /* WaybackCDXEntry.h */,
+				577BAEA719FCDD0F00FE46A5 /* WaybackCDXEntry.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		57C438F819FC863500FEF83B = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +105,7 @@
 		57C4390319FC863500FEF83B /* Flux */ = {
 			isa = PBXGroup;
 			children = (
+				577BAEA519FCDCD700FE46A5 /* Models */,
 				57C4392D19FC8C2200FEF83B /* Networking */,
 				57C4390819FC863600FEF83B /* AppDelegate.h */,
 				57C4390919FC863600FEF83B /* AppDelegate.m */,
@@ -297,6 +310,7 @@
 				57C4390D19FC863600FEF83B /* Flux.xcdatamodeld in Sources */,
 				57C4390A19FC863600FEF83B /* AppDelegate.m in Sources */,
 				57C4391019FC863600FEF83B /* ViewController.m in Sources */,
+				577BAEA819FCDD0F00FE46A5 /* WaybackCDXEntry.m in Sources */,
 				57C4393019FC8E2500FEF83B /* WaybackCDXClient.m in Sources */,
 				57C4390719FC863500FEF83B /* main.m in Sources */,
 			);

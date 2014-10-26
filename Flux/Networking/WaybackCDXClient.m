@@ -7,6 +7,7 @@
 //
 
 #import "WaybackCDXClient.h"
+#import "WaybackCDXEntry.h"
 
 static NSString * const WaybackCDXClientBaseURL = @"http://web.archive.org/cdx/";
 
@@ -47,8 +48,15 @@ static NSString * const WaybackCDXClientBaseURL = @"http://web.archive.org/cdx/"
     }
     
     return [self GET:@"search/cdx" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSMutableArray *entries = [[NSMutableArray alloc] init];
+        for (NSArray *entryArray in (NSArray *)responseObject) {
+            if (![entryArray[0] isEqualToString:@"timestamp"]) {
+                [entries addObject:[[WaybackCDXEntry alloc] initWithJSONArray:entryArray]];
+            }
+        }
+        
         if (success) {
-            success(task, (NSArray *)responseObject);
+            success(task, entries);
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         if (failure) {
