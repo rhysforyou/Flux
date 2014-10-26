@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSDate *timestamp;
 @property (nonatomic, strong) NSURL *originalURL;
+@property (nonatomic, strong) NSURL *accessableURL;
 
 - (instancetype)initWithJSONArray:(NSArray *)JSON;
 

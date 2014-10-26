@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DatePickerViewController.h"
 
-@interface ViewController : UIViewController
+@interface MainViewController : UIViewController
+
+@property(strong,nonatomic)IBOutlet UITextField *URLField;
 
 
 @end
