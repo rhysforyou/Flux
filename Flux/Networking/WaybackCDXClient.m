@@ -23,8 +23,8 @@ static NSString * const WaybackCDXClientBaseURL = @"http://web.archive.org/cdx/"
     return _sharedClient;
 }
 
-- (NSURLSessionDataTask *)searchWithDomain:(NSString *)domain accuracy:(WaybackCDXClientAccuracy)accuracy success:(WaybackCDXClientSuccess)success failure:(WaybackCDXClientFailure)failure {
-    NSMutableDictionary *params = [@{@"url" : domain,
+- (NSURLSessionDataTask *)searchWithURL:(NSURL *)URL accuracy:(WaybackCDXClientAccuracy)accuracy success:(WaybackCDXClientSuccess)success failure:(WaybackCDXClientFailure)failure {
+    NSMutableDictionary *params = [@{@"url" : [URL absoluteString],
                                      @"output" : @"json",
                                      @"fl" : @"timestamp,original"} mutableCopy];
     
