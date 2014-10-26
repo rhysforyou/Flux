@@ -46,7 +46,7 @@ static NSString * const WaybackCDXClientBaseURL = @"http://web.archive.org/cdx/"
             break;
     }
     
-    return [self GET:@"/search/cdx" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+    return [self GET:@"search/cdx" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         if (success) {
             success(task, (NSArray *)responseObject);
         }
