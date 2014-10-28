@@ -50,11 +50,11 @@
     if ([self.lastLoadedURL isEqual:self.URL])
         return;
 
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimating];
 
     [[WaybackCDXClient sharedClient] searchWithURL:self.URL accuracy:WaybackCDXClientAccuracyDay success:^(NSURLSessionDataTask *task, NSArray *responseObject) {
-        self.lastLoadedURL = self.URL;
         [self processSearchResults:responseObject];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Unable to load"
@@ -112,8 +112,10 @@
             WaybackCDXEntry *firstEntry = self.URLArray[0];
             self.calendarController.firstDate = firstEntry.timestamp;
             [self.calendarController.collectionView reloadData];
+            self.lastLoadedURL = self.URL;
             
             [UIView animateWithDuration:0.5 animations:^{
+                self.navigationItem.rightBarButtonItem.enabled = YES;
                 self.loadingView.alpha = 0.0f;
             } completion:^(BOOL finished) {
                 [self.loadingView removeFromSuperview];
@@ -142,7 +144,7 @@
 }
 
 - (IBAction)unwindFromYearPicker:(UIStoryboardSegue *)unwindSegue {
-    if ([unwindSegue.identifier  isEqualToString:@"doneYearPicker"]) {
+    if ([unwindSegue.identifier isEqualToString:@"doneYearPicker"]) {
         YearPickerController *yearPickerController = unwindSegue.sourceViewController;
         [self.calendarController scrollToDate:yearPickerController.selectedDate animated:YES];
     }
