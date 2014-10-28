@@ -41,7 +41,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search by URL…" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Uk-kn-g59">
                                         <rect key="frame" x="0.0" y="0.0" width="292" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" keyboardAppearance="alert" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
                                         <connections>
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="uFB-Yq-AkR"/>
                                         </connections>
@@ -216,7 +216,7 @@
         <image name="BackButton" width="22" height="22"/>
         <image name="ForwardButton" width="22" height="22"/>
         <image name="LogoMainLight" width="360" height="113"/>
-        <image name="MainBackground" width="2418" height="3788"/>
+        <image name="MainBackground" width="2048" height="3209"/>
     </resources>
     <color key="tintColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
 </document>
