@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57391B6119FF403D0021425F /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57391B5C19FF403D0021425F /* DatePickerViewController.m */; };
+		57391B6219FF403D0021425F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57391B5E19FF403D0021425F /* MainViewController.m */; };
+		57391B6319FF403D0021425F /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57391B6019FF403D0021425F /* WebViewController.m */; };
+		57391B6819FF40730021425F /* DateHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57391B6519FF40730021425F /* DateHeaderView.m */; };
+		57391B6919FF40730021425F /* DatePickerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57391B6719FF40730021425F /* DatePickerViewCell.m */; };
 		577BAEA819FCDD0F00FE46A5 /* WaybackCDXEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 577BAEA719FCDD0F00FE46A5 /* WaybackCDXEntry.m */; };
 		57C4390719FC863500FEF83B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C4390619FC863500FEF83B /* main.m */; };
 		57C4390A19FC863600FEF83B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C4390919FC863600FEF83B /* AppDelegate.m */; };
 		57C4390D19FC863600FEF83B /* Flux.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57C4390B19FC863600FEF83B /* Flux.xcdatamodeld */; };
-		57C4391019FC863600FEF83B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C4390F19FC863600FEF83B /* MainViewController.m */; };
 		57C4391319FC863600FEF83B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57C4391119FC863600FEF83B /* Main.storyboard */; };
 		57C4391519FC863600FEF83B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57C4391419FC863600FEF83B /* Images.xcassets */; };
 		57C4391819FC863600FEF83B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57C4391619FC863600FEF83B /* LaunchScreen.xib */; };
@@ -21,10 +25,6 @@
 		6B3D6A1C19FD7EDA001A9281 /* flux-logo-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B3D6A1919FD7EDA001A9281 /* flux-logo-1.jpg */; };
 		6B3D6A1D19FD7EDA001A9281 /* Flux-logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B3D6A1A19FD7EDA001A9281 /* Flux-logo.jpg */; };
 		6B3D6A1F19FD8848001A9281 /* Flux_icon_mix.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B3D6A1E19FD8848001A9281 /* Flux_icon_mix.png */; };
-		6BE9938619FD0EEF006B0895 /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9938519FD0EEF006B0895 /* DatePickerViewController.m */; };
-		6BE9938919FD106C006B0895 /* DatePickerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9938819FD106C006B0895 /* DatePickerViewCell.m */; };
-		6BE9938C19FD2DB7006B0895 /* DateHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9938B19FD2DB7006B0895 /* DateHeaderView.m */; };
-		6BE993C419FD6AE0006B0895 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE993C319FD6AE0006B0895 /* WebViewController.m */; };
 		6C67576D4365F07803B8817C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CAF2AE5663E6A3E9FC01C9B2 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +40,16 @@
 
 /* Begin PBXFileReference section */
 		338E091176878C0EA43CCD3F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		57391B5B19FF403D0021425F /* DatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerViewController.h; sourceTree = "<group>"; };
+		57391B5C19FF403D0021425F /* DatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerViewController.m; sourceTree = "<group>"; };
+		57391B5D19FF403D0021425F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		57391B5E19FF403D0021425F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		57391B5F19FF403D0021425F /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		57391B6019FF403D0021425F /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		57391B6419FF40730021425F /* DateHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateHeaderView.h; sourceTree = "<group>"; };
+		57391B6519FF40730021425F /* DateHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateHeaderView.m; sourceTree = "<group>"; };
+		57391B6619FF40730021425F /* DatePickerViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerViewCell.h; sourceTree = "<group>"; };
+		57391B6719FF40730021425F /* DatePickerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerViewCell.m; sourceTree = "<group>"; };
 		577BAEA619FCDD0F00FE46A5 /* WaybackCDXEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaybackCDXEntry.h; sourceTree = "<group>"; };
 		577BAEA719FCDD0F00FE46A5 /* WaybackCDXEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaybackCDXEntry.m; sourceTree = "<group>"; };
 		57C4390119FC863500FEF83B /* Flux.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flux.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,8 +58,6 @@
 		57C4390819FC863600FEF83B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		57C4390919FC863600FEF83B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		57C4390C19FC863600FEF83B /* Flux.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Flux.xcdatamodel; sourceTree = "<group>"; };
-		57C4390E19FC863600FEF83B /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		57C4390F19FC863600FEF83B /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		57C4391219FC863600FEF83B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		57C4391419FC863600FEF83B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		57C4391719FC863600FEF83B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -62,14 +70,6 @@
 		6B3D6A1919FD7EDA001A9281 /* flux-logo-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "flux-logo-1.jpg"; sourceTree = "<group>"; };
 		6B3D6A1A19FD7EDA001A9281 /* Flux-logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Flux-logo.jpg"; sourceTree = "<group>"; };
 		6B3D6A1E19FD8848001A9281 /* Flux_icon_mix.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flux_icon_mix.png; sourceTree = "<group>"; };
-		6BE9938519FD0EEF006B0895 /* DatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerViewController.m; sourceTree = "<group>"; };
-		6BE9938719FD0F00006B0895 /* DatePickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatePickerViewController.h; sourceTree = "<group>"; };
-		6BE9938819FD106C006B0895 /* DatePickerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerViewCell.m; sourceTree = "<group>"; };
-		6BE9938A19FD107B006B0895 /* DatePickerViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatePickerViewCell.h; sourceTree = "<group>"; };
-		6BE9938B19FD2DB7006B0895 /* DateHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateHeaderView.m; sourceTree = "<group>"; };
-		6BE9938D19FD2DC8006B0895 /* DateHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DateHeaderView.h; sourceTree = "<group>"; };
-		6BE993C319FD6AE0006B0895 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
-		6BE993C519FD6AED006B0895 /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		7EE8FD64BE37D044B37E9FC1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CAF2AE5663E6A3E9FC01C9B2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -93,6 +93,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57391B5919FF3FE10021425F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				57391B5B19FF403D0021425F /* DatePickerViewController.h */,
+				57391B5C19FF403D0021425F /* DatePickerViewController.m */,
+				57391B5D19FF403D0021425F /* MainViewController.h */,
+				57391B5E19FF403D0021425F /* MainViewController.m */,
+				57391B5F19FF403D0021425F /* WebViewController.h */,
+				57391B6019FF403D0021425F /* WebViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		57391B5A19FF3FE60021425F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				57391B6419FF40730021425F /* DateHeaderView.h */,
+				57391B6519FF40730021425F /* DateHeaderView.m */,
+				57391B6619FF40730021425F /* DatePickerViewCell.h */,
+				57391B6719FF40730021425F /* DatePickerViewCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		577BAEA519FCDCD700FE46A5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,20 +149,12 @@
 		57C4390319FC863500FEF83B /* Flux */ = {
 			isa = PBXGroup;
 			children = (
+				57391B5919FF3FE10021425F /* Controllers */,
+				57391B5A19FF3FE60021425F /* Views */,
 				577BAEA519FCDCD700FE46A5 /* Models */,
 				57C4392D19FC8C2200FEF83B /* Networking */,
 				57C4390819FC863600FEF83B /* AppDelegate.h */,
 				57C4390919FC863600FEF83B /* AppDelegate.m */,
-				57C4390E19FC863600FEF83B /* MainViewController.h */,
-				57C4390F19FC863600FEF83B /* MainViewController.m */,
-				6BE9938719FD0F00006B0895 /* DatePickerViewController.h */,
-				6BE9938519FD0EEF006B0895 /* DatePickerViewController.m */,
-				6BE9938A19FD107B006B0895 /* DatePickerViewCell.h */,
-				6BE9938819FD106C006B0895 /* DatePickerViewCell.m */,
-				6BE9938D19FD2DC8006B0895 /* DateHeaderView.h */,
-				6BE9938B19FD2DB7006B0895 /* DateHeaderView.m */,
-				6BE993C519FD6AED006B0895 /* WebViewController.h */,
-				6BE993C319FD6AE0006B0895 /* WebViewController.m */,
 				57C4391119FC863600FEF83B /* Main.storyboard */,
 				57C4391419FC863600FEF83B /* Images.xcassets */,
 				57C4391619FC863600FEF83B /* LaunchScreen.xib */,
@@ -343,15 +359,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57391B6119FF403D0021425F /* DatePickerViewController.m in Sources */,
+				57391B6319FF403D0021425F /* WebViewController.m in Sources */,
 				57C4390D19FC863600FEF83B /* Flux.xcdatamodeld in Sources */,
-				6BE993C419FD6AE0006B0895 /* WebViewController.m in Sources */,
-				6BE9938619FD0EEF006B0895 /* DatePickerViewController.m in Sources */,
+				57391B6819FF40730021425F /* DateHeaderView.m in Sources */,
 				57C4390A19FC863600FEF83B /* AppDelegate.m in Sources */,
-				6BE9938C19FD2DB7006B0895 /* DateHeaderView.m in Sources */,
-				57C4391019FC863600FEF83B /* MainViewController.m in Sources */,
+				57391B6219FF403D0021425F /* MainViewController.m in Sources */,
+				57391B6919FF40730021425F /* DatePickerViewCell.m in Sources */,
 				577BAEA819FCDD0F00FE46A5 /* WaybackCDXEntry.m in Sources */,
 				57C4393019FC8E2500FEF83B /* WaybackCDXClient.m in Sources */,
-				6BE9938919FD106C006B0895 /* DatePickerViewCell.m in Sources */,
 				57C4390719FC863500FEF83B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
