@@ -66,4 +66,35 @@
     self.forwardButton.enabled = self.webView.canGoForward;
 }
 
+-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
+{
+    NSString* urlString = [[request URL] absoluteString];
+    _requestedURL = urlString;
+
+    return YES;
+
+}
+
+-(IBAction)toggleShareSheet:(id)sender
+{
+    NSString *shareText = @"Now this is old...";
+    NSURL *shareURL = [NSURL URLWithString:_requestedURL];
+
+    NSArray *objectsToShare = @[shareText, shareURL];
+
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+
+    [activityViewController setValue:shareText forKey:@"subject"];
+
+    activityViewController.excludedActivityTypes = @[UIActivityTypeAssignToContact,
+                                                     UIActivityTypeSaveToCameraRoll,
+                                                     UIActivityTypePostToTencentWeibo];
+
+
+    [self presentViewController:activityViewController
+                       animated:YES
+                     completion:nil];
+}
+
+
 @end

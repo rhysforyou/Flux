@@ -17,4 +17,8 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardButton;
 
+-(IBAction)toggleShareSheet:(id)sender;
+
+@property NSString *requestedURL;
+
 @end
