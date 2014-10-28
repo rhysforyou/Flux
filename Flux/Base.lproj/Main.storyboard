@@ -17,45 +17,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKl-Ze-wOy">
-                                <rect key="frame" x="424" y="285" width="46" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ucJ-eX-aDN">
+                                <rect key="frame" x="120" y="297" width="360" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKl-Ze-wOy">
+                                        <rect key="frame" x="314" y="0.0" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="MxU-ls-Hz9"/>
+                                            <constraint firstAttribute="width" constant="46" id="wIx-XO-dt5"/>
+                                        </constraints>
+                                        <state key="normal" title="Go →">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Wau-sn-3gC" kind="show" identifier="showDatePicker" id="Dp8-6c-2ay"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Uk-kn-g59">
+                                        <rect key="frame" x="0.0" y="0.0" width="289" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="dvG-fk-iga"/>
+                                    <constraint firstItem="IKl-Ze-wOy" firstAttribute="leading" secondItem="9Uk-kn-g59" secondAttribute="trailing" constant="25" id="ItH-O1-O7j"/>
+                                    <constraint firstItem="9Uk-kn-g59" firstAttribute="top" secondItem="ucJ-eX-aDN" secondAttribute="top" id="M9g-p9-DyB"/>
+                                    <constraint firstAttribute="trailing" secondItem="IKl-Ze-wOy" secondAttribute="trailing" id="PvH-ej-CCo"/>
+                                    <constraint firstAttribute="bottom" secondItem="IKl-Ze-wOy" secondAttribute="bottom" id="Rwi-Wh-CJa"/>
+                                    <constraint firstItem="IKl-Ze-wOy" firstAttribute="top" secondItem="ucJ-eX-aDN" secondAttribute="top" id="d1S-eY-a5f"/>
+                                    <constraint firstAttribute="bottom" secondItem="9Uk-kn-g59" secondAttribute="bottom" id="dyK-qF-HPx"/>
+                                    <constraint firstItem="9Uk-kn-g59" firstAttribute="leading" secondItem="ucJ-eX-aDN" secondAttribute="leading" id="wNA-Bv-zn9"/>
                                 </constraints>
-                                <state key="normal" title="Go -&gt;">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Wau-sn-3gC" kind="show" identifier="showDatePicker" id="Dp8-6c-2ay"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Uk-kn-g59">
-                                <rect key="frame" x="83" y="285" width="316" height="30"/>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoMain" translatesAutoresizingMaskIntoConstraints="NO" id="aDw-7U-jzr">
+                                <rect key="frame" x="120" y="164" width="360" height="113"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="G1A-Io-eju"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Flux_icon_mix.png" translatesAutoresizingMaskIntoConstraints="NO" id="aDw-7U-jzr">
-                                <rect key="frame" x="180" y="149" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="29r-h9-pbb"/>
-                                    <constraint firstAttribute="height" constant="128" id="ek7-cR-5em"/>
+                                    <constraint firstAttribute="width" priority="500" constant="360" id="h2m-W3-8WS"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="IKl-Ze-wOy" secondAttribute="trailing" constant="10" id="3Nf-0P-rJg"/>
-                            <constraint firstItem="IKl-Ze-wOy" firstAttribute="leading" secondItem="9Uk-kn-g59" secondAttribute="trailing" constant="20" id="6K9-Ya-Xwc"/>
-                            <constraint firstItem="9Uk-kn-g59" firstAttribute="top" secondItem="aDw-7U-jzr" secondAttribute="bottom" constant="8" id="CBT-Xq-D6u"/>
-                            <constraint firstItem="aDw-7U-jzr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="85" id="fC0-kK-kp9"/>
-                            <constraint firstItem="9Uk-kn-g59" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="lAR-Qk-L3s"/>
-                            <constraint firstAttribute="centerY" secondItem="9Uk-kn-g59" secondAttribute="centerY" id="md1-f5-xve"/>
-                            <constraint firstAttribute="centerX" secondItem="aDw-7U-jzr" secondAttribute="centerX" id="rhn-9v-1Kb"/>
-                            <constraint firstAttribute="centerY" secondItem="IKl-Ze-wOy" secondAttribute="centerY" id="y7D-xr-jrT"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="aDw-7U-jzr" secondAttribute="trailing" constant="20" id="AUC-sU-Hdw"/>
+                            <constraint firstItem="ucJ-eX-aDN" firstAttribute="trailing" secondItem="aDw-7U-jzr" secondAttribute="trailing" id="BQo-52-Ais"/>
+                            <constraint firstItem="aDw-7U-jzr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Yn5-UH-2EO"/>
+                            <constraint firstAttribute="centerX" secondItem="aDw-7U-jzr" secondAttribute="centerX" id="h8o-Wt-KDh"/>
+                            <constraint firstItem="ucJ-eX-aDN" firstAttribute="top" secondItem="aDw-7U-jzr" secondAttribute="bottom" constant="20" id="omE-Td-8gf"/>
+                            <constraint firstItem="aDw-7U-jzr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="wWO-GU-sGe"/>
+                            <constraint firstItem="ucJ-eX-aDN" firstAttribute="leading" secondItem="aDw-7U-jzr" secondAttribute="leading" id="zuQ-Bd-47p"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Rys-Y1-Z5b"/>
@@ -201,6 +211,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Flux_icon_mix.png" width="454" height="340"/>
+        <image name="LogoMain" width="360" height="113"/>
     </resources>
 </document>

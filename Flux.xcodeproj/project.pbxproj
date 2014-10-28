@@ -21,10 +21,6 @@
 		57C4391819FC863600FEF83B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57C4391619FC863600FEF83B /* LaunchScreen.xib */; };
 		57C4392419FC863600FEF83B /* FluxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C4392319FC863600FEF83B /* FluxTests.m */; };
 		57C4393019FC8E2500FEF83B /* WaybackCDXClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C4392F19FC8E2500FEF83B /* WaybackCDXClient.m */; };
-		6B3D6A1B19FD7EDA001A9281 /* flux_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B3D6A1819FD7EDA001A9281 /* flux_icon.png */; };
-		6B3D6A1C19FD7EDA001A9281 /* flux-logo-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B3D6A1919FD7EDA001A9281 /* flux-logo-1.jpg */; };
-		6B3D6A1D19FD7EDA001A9281 /* Flux-logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B3D6A1A19FD7EDA001A9281 /* Flux-logo.jpg */; };
-		6B3D6A1F19FD8848001A9281 /* Flux_icon_mix.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B3D6A1E19FD8848001A9281 /* Flux_icon_mix.png */; };
 		6C67576D4365F07803B8817C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CAF2AE5663E6A3E9FC01C9B2 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -66,10 +62,6 @@
 		57C4392319FC863600FEF83B /* FluxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FluxTests.m; sourceTree = "<group>"; };
 		57C4392E19FC8E2500FEF83B /* WaybackCDXClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaybackCDXClient.h; sourceTree = "<group>"; };
 		57C4392F19FC8E2500FEF83B /* WaybackCDXClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaybackCDXClient.m; sourceTree = "<group>"; };
-		6B3D6A1819FD7EDA001A9281 /* flux_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flux_icon.png; sourceTree = "<group>"; };
-		6B3D6A1919FD7EDA001A9281 /* flux-logo-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "flux-logo-1.jpg"; sourceTree = "<group>"; };
-		6B3D6A1A19FD7EDA001A9281 /* Flux-logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Flux-logo.jpg"; sourceTree = "<group>"; };
-		6B3D6A1E19FD8848001A9281 /* Flux_icon_mix.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flux_icon_mix.png; sourceTree = "<group>"; };
 		7EE8FD64BE37D044B37E9FC1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CAF2AE5663E6A3E9FC01C9B2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -167,10 +159,6 @@
 		57C4390419FC863500FEF83B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6B3D6A1E19FD8848001A9281 /* Flux_icon_mix.png */,
-				6B3D6A1819FD7EDA001A9281 /* flux_icon.png */,
-				6B3D6A1919FD7EDA001A9281 /* flux-logo-1.jpg */,
-				6B3D6A1A19FD7EDA001A9281 /* Flux-logo.jpg */,
 				57C4390519FC863500FEF83B /* Info.plist */,
 				57C4390619FC863500FEF83B /* main.m */,
 			);
@@ -303,11 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57C4391319FC863600FEF83B /* Main.storyboard in Resources */,
-				6B3D6A1D19FD7EDA001A9281 /* Flux-logo.jpg in Resources */,
 				57C4391819FC863600FEF83B /* LaunchScreen.xib in Resources */,
-				6B3D6A1B19FD7EDA001A9281 /* flux_icon.png in Resources */,
-				6B3D6A1C19FD7EDA001A9281 /* flux-logo-1.jpg in Resources */,
-				6B3D6A1F19FD8848001A9281 /* Flux_icon_mix.png in Resources */,
 				57C4391519FC863600FEF83B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

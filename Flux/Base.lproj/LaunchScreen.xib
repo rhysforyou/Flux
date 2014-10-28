@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -11,23 +11,27 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2014 Rhys Powell. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
-                    <rect key="frame" x="20" y="439" width="441" height="21"/>
+                    <rect key="frame" x="20" y="439" width="441" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Flux-logo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ZW9-ts-aIt">
-                    <rect key="frame" x="95" y="154" width="291" height="171"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoMain" translatesAutoresizingMaskIntoConstraints="NO" id="ZW9-ts-aIt">
+                    <rect key="frame" x="60.5" y="183" width="360" height="113"/>
+                    <constraints>
+                        <constraint firstAttribute="width" priority="500" constant="360" id="b5o-bZ-hFT"/>
+                    </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZW9-ts-aIt" secondAttribute="trailing" constant="94" id="2vC-qh-Rkj"/>
+                <constraint firstItem="ZW9-ts-aIt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="60" id="BOM-P0-QNn"/>
+                <constraint firstAttribute="centerX" secondItem="ZW9-ts-aIt" secondAttribute="centerX" id="Jlk-bc-rTX"/>
                 <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
                 <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
                 <constraint firstAttribute="centerY" secondItem="ZW9-ts-aIt" secondAttribute="centerY" id="hWe-FT-2tf"/>
-                <constraint firstItem="ZW9-ts-aIt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="95" id="wDO-cn-Fmt"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZW9-ts-aIt" secondAttribute="trailing" constant="59.5" id="nKp-I5-c8l"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -35,6 +39,6 @@
         </view>
     </objects>
     <resources>
-        <image name="Flux-logo.jpg" width="975" height="600"/>
+        <image name="LogoMain" width="360" height="113"/>
     </resources>
 </document>
