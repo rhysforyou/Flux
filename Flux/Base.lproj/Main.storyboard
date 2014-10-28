@@ -146,29 +146,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NhH-m0-uPo">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem title="Item" id="Hrr-cg-eHN"/>
-                                    <barButtonItem title="Item" id="zfU-8I-LoK"/>
-                                    <barButtonItem title="Item" id="WK5-QZ-5V1"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ui8-1T-l9s"/>
-                                    <barButtonItem title="Item" id="xIi-4N-uz7"/>
-                                </items>
-                            </toolbar>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Skn-uC-Ldw">
-                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="dOV-tf-4cS" id="jya-1s-m1o"/>
+                                </connections>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NhH-m0-uPo" firstAttribute="top" secondItem="Skn-uC-Ldw" secondAttribute="bottom" id="3Ct-3r-sAE"/>
-                            <constraint firstItem="xB1-Fp-s8C" firstAttribute="top" secondItem="NhH-m0-uPo" secondAttribute="bottom" id="3Df-ra-obE"/>
-                            <constraint firstItem="Skn-uC-Ldw" firstAttribute="top" secondItem="esQ-qL-osq" secondAttribute="bottom" id="Lsg-K6-NRt"/>
-                            <constraint firstAttribute="trailing" secondItem="NhH-m0-uPo" secondAttribute="trailing" id="Nth-kF-9dm"/>
                             <constraint firstItem="Skn-uC-Ldw" firstAttribute="leading" secondItem="Y8Z-hE-7L5" secondAttribute="leading" id="OUM-xm-7ra"/>
-                            <constraint firstItem="NhH-m0-uPo" firstAttribute="leading" secondItem="Y8Z-hE-7L5" secondAttribute="leading" id="QER-uM-Gbx"/>
+                            <constraint firstItem="Skn-uC-Ldw" firstAttribute="top" secondItem="Y8Z-hE-7L5" secondAttribute="top" id="l0k-n1-gfX"/>
+                            <constraint firstItem="xB1-Fp-s8C" firstAttribute="top" secondItem="Skn-uC-Ldw" secondAttribute="bottom" id="oJN-Y5-YdZ"/>
                             <constraint firstAttribute="trailing" secondItem="Skn-uC-Ldw" secondAttribute="trailing" id="sWc-k4-Y5b"/>
                         </constraints>
                     </view>

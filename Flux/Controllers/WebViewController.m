@@ -16,13 +16,17 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    NSURLRequest *pageRequest = [[NSURLRequest alloc] initWithURL:self.WebURL];
-    [self.webView loadRequest:pageRequest];
-    NSLog(@"%@", self.WebURL);
+
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:self.WebURL];
+    [self.webView loadRequest:request];
+}
+
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [webView stringByEvaluatingJavaScriptFromString:@"__wm.h();"];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    [webView stringByEvaluatingJavaScriptFromString:@"var __bar=document.getElementById('wm-ipp');__bar.parentNode.removeChild(__bar);"];
 }
 @end
