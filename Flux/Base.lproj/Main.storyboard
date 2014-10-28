@@ -14,11 +14,14 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainBackground" translatesAutoresizingMaskIntoConstraints="NO" id="FfP-hq-XYC">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ucJ-eX-aDN">
-                                <rect key="frame" x="120" y="297" width="360" height="30"/>
+                                <rect key="frame" x="120" y="233" width="360" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKl-Ze-wOy">
                                         <rect key="frame" x="300" y="0.0" width="60" height="30"/>
@@ -44,7 +47,6 @@
                                         </connections>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="IKl-Ze-wOy" firstAttribute="leading" secondItem="9Uk-kn-g59" secondAttribute="trailing" constant="8" symbolic="YES" id="ItH-O1-O7j"/>
                                     <constraint firstItem="9Uk-kn-g59" firstAttribute="top" secondItem="ucJ-eX-aDN" secondAttribute="top" id="M9g-p9-DyB"/>
@@ -55,20 +57,24 @@
                                     <constraint firstItem="9Uk-kn-g59" firstAttribute="leading" secondItem="ucJ-eX-aDN" secondAttribute="leading" id="wNA-Bv-zn9"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoMain" translatesAutoresizingMaskIntoConstraints="NO" id="aDw-7U-jzr">
-                                <rect key="frame" x="120" y="164" width="360" height="113"/>
+                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoMainLight" translatesAutoresizingMaskIntoConstraints="NO" id="aDw-7U-jzr">
+                                <rect key="frame" x="120" y="100" width="360" height="113"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" priority="500" constant="360" id="h2m-W3-8WS"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="aDw-7U-jzr" secondAttribute="trailing" constant="20" id="AUC-sU-Hdw"/>
                             <constraint firstItem="ucJ-eX-aDN" firstAttribute="trailing" secondItem="aDw-7U-jzr" secondAttribute="trailing" id="BQo-52-Ais"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="FfP-hq-XYC" secondAttribute="bottom" id="XTl-F3-RL9"/>
                             <constraint firstItem="aDw-7U-jzr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Yn5-UH-2EO"/>
+                            <constraint firstAttribute="trailing" secondItem="FfP-hq-XYC" secondAttribute="trailing" id="c5a-1d-SGE"/>
                             <constraint firstAttribute="centerX" secondItem="aDw-7U-jzr" secondAttribute="centerX" id="h8o-Wt-KDh"/>
                             <constraint firstItem="ucJ-eX-aDN" firstAttribute="top" secondItem="aDw-7U-jzr" secondAttribute="bottom" constant="20" id="omE-Td-8gf"/>
+                            <constraint firstItem="FfP-hq-XYC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ra4-RW-ANB"/>
+                            <constraint firstItem="FfP-hq-XYC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wQY-6F-PpY"/>
                             <constraint firstItem="aDw-7U-jzr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="wWO-GU-sGe"/>
                             <constraint firstItem="ucJ-eX-aDN" firstAttribute="leading" secondItem="aDw-7U-jzr" secondAttribute="leading" id="zuQ-Bd-47p"/>
                         </constraints>
@@ -80,17 +86,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="301" y="417"/>
+            <point key="canvasLocation" x="304" y="428"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="M0j-H9-htc">
             <objects>
-                <navigationController id="x49-yl-8LS" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YrI-yJ-D94">
+                <navigationController toolbarHidden="NO" id="x49-yl-8LS" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="YrI-yJ-D94">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" id="dde-vm-TNC">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="UEH-xf-Rss"/>
                     </connections>
@@ -108,11 +121,11 @@
                         <viewControllerLayoutGuide type="bottom" id="LFu-af-3E8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Zfg-08-hbt">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7A1-7U-gxg">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                                 <connections>
                                     <segue destination="FRv-xx-8WR" kind="embed" identifier="embedCalendar" id="8Qm-TJ-No7"/>
                                 </connections>
@@ -143,11 +156,11 @@
                         <viewControllerLayoutGuide type="bottom" id="xB1-Fp-s8C"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Y8Z-hE-7L5">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Skn-uC-Ldw">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="dOV-tf-4cS" id="jya-1s-m1o"/>
@@ -163,13 +176,13 @@
                         </constraints>
                     </view>
                     <toolbarItems>
-                        <barButtonItem title="Back" id="weQ-KO-7jc">
+                        <barButtonItem image="BackButton" id="weQ-KO-7jc">
                             <connections>
                                 <action selector="goBack:" destination="dOV-tf-4cS" id="Qe4-y4-Sz0"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="XuX-mZ-rnv"/>
-                        <barButtonItem title="Forward" id="rGF-76-QBa">
+                        <barButtonItem image="ForwardButton" id="rGF-76-QBa">
                             <connections>
                                 <action selector="goForward:" destination="dOV-tf-4cS" id="JcD-NN-B6h"/>
                             </connections>
@@ -200,6 +213,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LogoMain" width="360" height="113"/>
+        <image name="BackButton" width="22" height="22"/>
+        <image name="ForwardButton" width="22" height="22"/>
+        <image name="LogoMainLight" width="360" height="113"/>
+        <image name="MainBackground" width="2418" height="3788"/>
     </resources>
+    <color key="tintColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
 </document>
