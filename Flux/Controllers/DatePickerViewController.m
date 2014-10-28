@@ -51,7 +51,13 @@
     [[WaybackCDXClient sharedClient] searchWithURL:self.URL accuracy:WaybackCDXClientAccuracyDay success:^(NSURLSessionDataTask *task, NSArray *responseObject) {
         [self processSearchResults:responseObject];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"Unable to load results: %@", error.localizedDescription);
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Unable to load"
+                                                                                 message:@"We couldn't load data about this website. Perhaps you're having connectivity issues?"
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }]];
+        [self presentViewController:alertController animated:YES completion:nil];
     }];
 }
 
