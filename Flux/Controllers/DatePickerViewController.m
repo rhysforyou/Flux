@@ -14,6 +14,7 @@
 #import "WaybackCDXClient.h"
 #import "WaybackCDXEntry.h"
 #import "WebViewController.h"
+#import "YearPickerController.h"
 
 @interface DatePickerViewController ()
 
@@ -22,6 +23,7 @@
 @property (nonatomic, strong) PDTSimpleCalendarViewController *calendarController;
 @property (nonatomic, strong) WaybackCDXEntry *selectedEntry;
 @property (nonatomic, strong) UIImageView *loadingView;
+@property (nonatomic, strong) NSURL *lastLoadedURL;
 
 @end
 
@@ -45,10 +47,14 @@
     [super viewWillAppear:animated];
     [self.navigationItem setTitle:self.URL.host];
 
+    if ([self.lastLoadedURL isEqual:self.URL])
+        return;
+
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimating];
 
     [[WaybackCDXClient sharedClient] searchWithURL:self.URL accuracy:WaybackCDXClientAccuracyDay success:^(NSURLSessionDataTask *task, NSArray *responseObject) {
+        self.lastLoadedURL = self.URL;
         [self processSearchResults:responseObject];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Unable to load"
@@ -74,6 +80,11 @@
         startDateComponents.day = 1;
         startDateComponents.month = 1;
         startDateComponents.year = 1995;
+    } else if ([segue.identifier isEqualToString:@"showDatePicker"]) {
+        UINavigationController *navVC = segue.destinationViewController;
+        YearPickerController *yearPickerController = (YearPickerController *)[navVC topViewController];
+        WaybackCDXEntry *firstEntry = self.URLArray[0];
+        yearPickerController.startDate = firstEntry.timestamp;
     }
 }
 
@@ -127,6 +138,13 @@
         return filteredResults[0];
     } else {
         return nil;
+    }
+}
+
+- (IBAction)unwindFromYearPicker:(UIStoryboardSegue *)unwindSegue {
+    if ([unwindSegue.identifier  isEqualToString:@"doneYearPicker"]) {
+        YearPickerController *yearPickerController = unwindSegue.sourceViewController;
+        [self.calendarController scrollToDate:yearPickerController.selectedDate animated:YES];
     }
 }
 

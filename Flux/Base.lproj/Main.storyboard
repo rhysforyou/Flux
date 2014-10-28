@@ -92,7 +92,6 @@
         <scene sceneID="M0j-H9-htc">
             <objects>
                 <navigationController toolbarHidden="NO" id="x49-yl-8LS" sceneMemberID="viewController">
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="YrI-yJ-D94">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -111,6 +110,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fq9-aE-hRK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-378" y="417"/>
+        </scene>
+        <!--Year Picker Controller-->
+        <scene sceneID="RwB-ws-r62">
+            <objects>
+                <viewController id="K1T-62-Ez4" customClass="YearPickerController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2QI-8U-kwb"/>
+                        <viewControllerLayoutGuide type="bottom" id="6ur-Xp-y5c"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mVa-u1-tLa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pQo-gX-MbN">
+                                <rect key="frame" x="0.0" y="160" width="600" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="uqh-fJ-MMp"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="K1T-62-Ez4" id="Vpz-W3-LUn"/>
+                                    <outlet property="delegate" destination="K1T-62-Ez4" id="jOC-20-uit"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pQo-gX-MbN" firstAttribute="leading" secondItem="mVa-u1-tLa" secondAttribute="leading" id="7Kh-ao-Pxa"/>
+                            <constraint firstAttribute="centerX" secondItem="pQo-gX-MbN" secondAttribute="centerX" id="Hqq-4d-wiZ"/>
+                            <constraint firstAttribute="trailing" secondItem="pQo-gX-MbN" secondAttribute="trailing" id="Q5H-mg-bor"/>
+                            <constraint firstItem="pQo-gX-MbN" firstAttribute="centerY" secondItem="mVa-u1-tLa" secondAttribute="centerY" id="WV0-xI-UCU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="rqX-Qi-BIP">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="IjW-JQ-HEe">
+                            <connections>
+                                <segue destination="y2d-8v-DCm" kind="unwind" identifier="cancelYearPicker" unwindAction="unwindFromYearPicker:" id="1ym-Ko-EPm"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="fEx-tZ-Fsy">
+                            <connections>
+                                <segue destination="v7Q-L7-olA" kind="unwind" identifier="doneYearPicker" unwindAction="unwindFromYearPicker:" id="OYi-dB-7HW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="pickerView" destination="pQo-gX-MbN" id="XLs-ZI-Ilu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dz5-0S-bgc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="v7Q-L7-olA" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1676" y="-283"/>
         </scene>
         <!--Date Picker View Controller-->
         <scene sceneID="c0s-7t-wU7">
@@ -139,13 +190,23 @@
                             <constraint firstItem="7A1-7U-gxg" firstAttribute="bottom" secondItem="LFu-af-3E8" secondAttribute="bottom" id="yML-1I-Kf8"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="S1v-RQ-c7j">
+                        <barButtonItem key="rightBarButtonItem" title="Jump to Year" id="eGW-1q-MEb">
+                            <connections>
+                                <segue destination="NTu-nC-qdd" kind="popoverPresentation" identifier="showDatePicker" popoverAnchorBarButtonItem="eGW-1q-MEb" id="lTx-lR-3sO">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="dOV-tf-4cS" kind="show" identifier="showWebView" id="g2e-gS-iQz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T7h-NV-aAz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="y2d-8v-DCm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="997" y="417"/>
+            <point key="canvasLocation" x="997" y="428"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="pcq-C6-HDn">
@@ -210,6 +271,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dUd-SY-x6E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="997" y="1153"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ffn-kT-coM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NTu-nC-qdd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="1qs-yS-ivh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="K1T-62-Ez4" kind="relationship" relationship="rootViewController" id="b0w-Un-NjU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B0K-ig-LTF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="997" y="-281"/>
         </scene>
     </scenes>
     <resources>

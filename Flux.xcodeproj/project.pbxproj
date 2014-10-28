@@ -13,6 +13,7 @@
 		57391B6819FF40730021425F /* DateHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57391B6519FF40730021425F /* DateHeaderView.m */; };
 		57391B6919FF40730021425F /* DatePickerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57391B6719FF40730021425F /* DatePickerViewCell.m */; };
 		577BAEA819FCDD0F00FE46A5 /* WaybackCDXEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 577BAEA719FCDD0F00FE46A5 /* WaybackCDXEntry.m */; };
+		5788D39F19FFD1D4005AD994 /* YearPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5788D39E19FFD1D4005AD994 /* YearPickerController.m */; };
 		57C4390719FC863500FEF83B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C4390619FC863500FEF83B /* main.m */; };
 		57C4390A19FC863600FEF83B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C4390919FC863600FEF83B /* AppDelegate.m */; };
 		57C4390D19FC863600FEF83B /* Flux.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57C4390B19FC863600FEF83B /* Flux.xcdatamodeld */; };
@@ -48,6 +49,8 @@
 		57391B6719FF40730021425F /* DatePickerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerViewCell.m; sourceTree = "<group>"; };
 		577BAEA619FCDD0F00FE46A5 /* WaybackCDXEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaybackCDXEntry.h; sourceTree = "<group>"; };
 		577BAEA719FCDD0F00FE46A5 /* WaybackCDXEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaybackCDXEntry.m; sourceTree = "<group>"; };
+		5788D39D19FFD1D4005AD994 /* YearPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YearPickerController.h; sourceTree = "<group>"; };
+		5788D39E19FFD1D4005AD994 /* YearPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YearPickerController.m; sourceTree = "<group>"; };
 		57C4390119FC863500FEF83B /* Flux.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flux.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57C4390519FC863500FEF83B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57C4390619FC863500FEF83B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -94,6 +97,8 @@
 				57391B5C19FF403D0021425F /* DatePickerViewController.m */,
 				57391B5F19FF403D0021425F /* WebViewController.h */,
 				57391B6019FF403D0021425F /* WebViewController.m */,
+				5788D39D19FFD1D4005AD994 /* YearPickerController.h */,
+				5788D39E19FFD1D4005AD994 /* YearPickerController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -346,6 +351,7 @@
 				57391B6119FF403D0021425F /* DatePickerViewController.m in Sources */,
 				57391B6319FF403D0021425F /* WebViewController.m in Sources */,
 				57C4390D19FC863600FEF83B /* Flux.xcdatamodeld in Sources */,
+				5788D39F19FFD1D4005AD994 /* YearPickerController.m in Sources */,
 				57391B6819FF40730021425F /* DateHeaderView.m in Sources */,
 				57C4390A19FC863600FEF83B /* AppDelegate.m in Sources */,
 				57391B6219FF403D0021425F /* MainViewController.m in Sources */,
