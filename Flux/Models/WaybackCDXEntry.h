@@ -10,9 +10,19 @@
 
 @interface WaybackCDXEntry : NSObject
 
+/** When the entry was captured */
 @property (nonatomic, strong) NSDate *timestamp;
+
+/** The original URL of this entry */
 @property (nonatomic, strong) NSURL *originalURL;
 
+/** Init the entry with a JSON array in the format returned by
+ the CDX API.
+ 
+ @param JSON the array to unpack
+ 
+ @return a newly instantiated CDX entry
+ */
 - (instancetype)initWithJSONArray:(NSArray *)JSON;
 
 @end

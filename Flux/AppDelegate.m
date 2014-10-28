@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "WaybackCDXClient.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [[WaybackCDXClient sharedClient] searchWithURL:[NSURL URLWithString:@"http://google.com"] accuracy:WaybackCDXClientAccuracyDay success:^(NSURLSessionDataTask *task, NSArray *responseObject) {
+        NSLog(@"Got %@ entries", @(responseObject.count));
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"Request failed: %@", error.localizedDescription);
+    }];
     return YES;
 }
 
