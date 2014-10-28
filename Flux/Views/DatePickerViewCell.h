@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DatePickerViewCell: UICollectionViewCell
+@interface DatePickerViewCell : UICollectionViewCell
 
-@property(strong,nonatomic)IBOutlet UILabel *cellLabel;
-@property(strong,nonatomic) NSURL *cellURL;
+@property (strong, nonatomic) IBOutlet UILabel *cellLabel;
+@property (strong, nonatomic) NSURL *cellURL;
 
--(DatePickerViewCell *)copy;
+- (DatePickerViewCell *)copy;
 @end
-

@@ -14,11 +14,10 @@
 
 @implementation MainViewController
 
-@synthesize URLField;
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqualToString:@"showDatePicker"]){
-        ((DatePickerViewController *)segue.destinationViewController).URL = URLField.text;
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showDatePicker"]) {
+        DatePickerViewController *datePickerVC = (DatePickerViewController *)segue.destinationViewController;
+        datePickerVC.URL = [NSURL URLWithString:self.URLField.text];
     }
 }
 
@@ -36,7 +35,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self performSegueWithIdentifier:@"showDatePicker" sender:self];
-    
+
     return NO;
 }
 

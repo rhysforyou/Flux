@@ -20,8 +20,8 @@
     if (self = [super init]) {
         self.timestamp = [self.JSONDateFormatter dateFromString:JSON[0]];
         self.originalURL = [NSURL URLWithString:JSON[1]];
-        
-        NSString *URLString = [[NSString alloc]initWithFormat:@"http://web.archive.org/web/%@/%@",JSON[0],JSON[1]];
+
+        NSString *URLString = [[NSString alloc] initWithFormat:@"http://web.archive.org/web/%@/%@", JSON[0], JSON[1]];
         self.accessableURL = [NSURL URLWithString:URLString];
     }
     return self;

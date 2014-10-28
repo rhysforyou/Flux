@@ -88,10 +88,10 @@
 		57391B5919FF3FE10021425F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				57391B5B19FF403D0021425F /* DatePickerViewController.h */,
-				57391B5C19FF403D0021425F /* DatePickerViewController.m */,
 				57391B5D19FF403D0021425F /* MainViewController.h */,
 				57391B5E19FF403D0021425F /* MainViewController.m */,
+				57391B5B19FF403D0021425F /* DatePickerViewController.h */,
+				57391B5C19FF403D0021425F /* DatePickerViewController.m */,
 				57391B5F19FF403D0021425F /* WebViewController.h */,
 				57391B6019FF403D0021425F /* WebViewController.m */,
 			);

@@ -11,7 +11,6 @@
 
 @interface MainViewController : UIViewController <UITextFieldDelegate>
 
-@property(strong,nonatomic)IBOutlet UITextField *URLField;
+@property (strong, nonatomic) IBOutlet UITextField *URLField;
 
 @end
-

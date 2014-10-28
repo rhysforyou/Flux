@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DatePickerViewController: UICollectionViewController <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+@interface DatePickerViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
-@property(strong, nonatomic) NSString *URL;
+@property (strong, nonatomic) NSURL* URL;
 
 @end
-
