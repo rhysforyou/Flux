@@ -24,12 +24,12 @@
 
 @implementation DatePickerViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self.navigationItem setTitle:self.URL.host];
 
     [[WaybackCDXClient sharedClient] searchWithURL:self.URL accuracy:WaybackCDXClientAccuracyMonth success:^(NSURLSessionDataTask *task, NSArray *responseObject) {
-        self.URLArray = responseObject.copy;
+        self.URLArray = [responseObject copy];
         [self.collectionView reloadData];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"Unable to load results: %@", error.localizedDescription);

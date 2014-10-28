@@ -17,7 +17,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showDatePicker"]) {
         DatePickerViewController *datePickerVC = (DatePickerViewController *)segue.destinationViewController;
-        datePickerVC.URL = [NSURL URLWithString:self.URLField.text];
+        NSURL *url = [NSURL URLWithString:self.URLField.text];
+        if (!url.scheme) {
+            url = [NSURL URLWithString:[@"http://" stringByAppendingString:self.URLField.text]];
+        }
+        datePickerVC.URL = url;
     }
 }
 
