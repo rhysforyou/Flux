@@ -35,12 +35,16 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
+    self.navigationItem.title = @"Loading...";
+    
     [self updateBackForwardButtons];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     [webView stringByEvaluatingJavaScriptFromString:@"var __bar=document.getElementById('wm-ipp');__bar.parentNode.removeChild(__bar);"];
+    
+    self.navigationItem.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     
     [self updateBackForwardButtons];
 }
