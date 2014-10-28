@@ -30,7 +30,6 @@
     if([segue.identifier isEqualToString:@"showDatePicker"]){
         ((DatePickerViewController *)segue.destinationViewController).URL = URLField.text;
     }
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -42,4 +41,13 @@
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillDisappear:animated];
 }
+
+#pragma mark - Text Field Delegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self performSegueWithIdentifier:@"showDatePicker" sender:self];
+    
+    return NO;
+}
+
 @end

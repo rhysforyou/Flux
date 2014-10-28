@@ -9,10 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "DatePickerViewController.h"
 
-@interface MainViewController : UIViewController
+@interface MainViewController : UIViewController <UITextFieldDelegate>
 
 @property(strong,nonatomic)IBOutlet UITextField *URLField;
-
 
 @end
 
