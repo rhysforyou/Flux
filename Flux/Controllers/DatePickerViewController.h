@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol PDTSimpleCalendarViewDelegate;
+#import "PDTSimpleCalendar.h"
 
 @interface DatePickerViewController : UIViewController <PDTSimpleCalendarViewDelegate>
 
-@property (strong, nonatomic) NSURL* URL;
+@property (strong, nonatomic) NSURL *URL;
 
 @end

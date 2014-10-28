@@ -14,14 +14,13 @@
 #import "WaybackCDXClient.h"
 #import "WaybackCDXEntry.h"
 #import "WebViewController.h"
-#import "PDTSimpleCalendar.h"
 
 @interface DatePickerViewController ()
 
 @property (nonatomic, strong) NSArray *URLArray;
 @property (nonatomic, strong) NSDictionary *dateCache;
-@property (nonatomic, strong) NSDateComponents *currentDateComponents;
 @property (nonatomic, strong) PDTSimpleCalendarViewController *calendarController;
+@property (nonatomic, strong) WaybackCDXEntry *selectedEntry;
 
 @end
 
@@ -36,9 +35,6 @@
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"Unable to load results: %@", error.localizedDescription);
     }];
-
-    NSDate *now = [NSDate date];
-    self.currentDateComponents = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth | NSCalendarUnitYear fromDate:now];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -47,12 +43,14 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"showWeb"]) {
-        // Figure out what URL to use
+    if ([segue.identifier isEqualToString:@"showWebView"]) {
+        WebViewController *webViewController = segue.destinationViewController;
+        webViewController.WebURL = self.selectedEntry.accessableURL;
     } else if ([segue.identifier isEqualToString:@"embedCalendar"]) {
         self.calendarController = segue.destinationViewController;
         self.calendarController.delegate = self;
         self.calendarController.lastDate = [NSDate date];
+        self.calendarController.calendar.timeZone = [NSTimeZone timeZoneWithName:@"GMT"];
         NSDateComponents *startDateComponents = [[NSDateComponents alloc] init];
         startDateComponents.day = 1;
         startDateComponents.month = 1;
@@ -63,7 +61,7 @@
 
 - (BOOL)hasEntryForDate:(NSDate *)date {
     NSCalendar *calendar = self.calendarController.calendar;
-    NSDateComponents *dateComponents = [calendar components:NSCalendarUnitDay | NSCalendarUnitWeekOfMonth | NSCalendarUnitYear fromDate:date];
+    NSDateComponents *dateComponents = [calendar components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:date];
     return self.dateCache[dateComponents] != nil;
 }
 
@@ -74,7 +72,7 @@
         
         [results enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             NSDate *date = [(WaybackCDXEntry *)obj timestamp];
-            NSDateComponents *components = [calendar components:NSCalendarUnitDay | NSCalendarUnitWeekOfMonth | NSCalendarUnitYear fromDate:date];
+            NSDateComponents *components = [calendar components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:date];
             newCache[components] = @YES;
         }];
         
@@ -85,6 +83,24 @@
             [self.calendarController.collectionView reloadData];
         });
     });
+}
+
+- (WaybackCDXEntry *)entryForDate:(NSDate *)date {
+    NSCalendar *calendar = self.calendarController.calendar;
+    NSDateComponents *startDateComponents = [calendar components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:date];
+    NSDateComponents *oneDay = [NSDateComponents new];
+    oneDay.day = 1;
+    
+    NSDate *startDate = [calendar dateFromComponents:startDateComponents];
+    NSDate *endDate = [calendar dateByAddingComponents:oneDay toDate:startDate options:0];
+    NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"(timestamp >= %@) && (timestamp < %@)", startDate, endDate];
+    NSArray *filteredResults = [self.URLArray filteredArrayUsingPredicate:datePredicate];
+    
+    if ([filteredResults count] > 0) {
+        return filteredResults[0];
+    } else {
+        return nil;
+    }
 }
 
 #pragma - mark Simple Calendar View Delegate
@@ -102,6 +118,10 @@
 }
 
 - (void)simpleCalendarViewController:(PDTSimpleCalendarViewController *)controller didSelectDate:(NSDate *)date {
+    self.selectedEntry = [self entryForDate:date];
+    if (self.selectedEntry != nil) {
+        [self performSegueWithIdentifier:@"showWebView" sender:self];
+    }
 }
 
 @end

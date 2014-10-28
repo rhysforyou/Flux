@@ -14,18 +14,12 @@
 
 @implementation WebViewController
 
-@synthesize webView;
-@synthesize WebURL;
-@synthesize Month;
-@synthesize Year;
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    NSString *NVtitle = [[NSString alloc] initWithFormat:@"%@, %ld", Month, (long)Year];
-    [self.navigationItem setTitle:NVtitle];
-    [webView setDelegate:self];
-    NSURLRequest *pageRequest = [[NSURLRequest alloc] initWithURL:WebURL];
-    [webView loadRequest:pageRequest];
-    NSLog(@"%@", WebURL);
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    NSURLRequest *pageRequest = [[NSURLRequest alloc] initWithURL:self.WebURL];
+    [self.webView loadRequest:pageRequest];
+    NSLog(@"%@", self.WebURL);
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
