@@ -10,14 +10,11 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2014 Rhys Powell. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
-                    <rect key="frame" x="20" y="439" width="441" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoMain" translatesAutoresizingMaskIntoConstraints="NO" id="ZW9-ts-aIt">
-                    <rect key="frame" x="60.5" y="183" width="360" height="113"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainBackground" translatesAutoresizingMaskIntoConstraints="NO" id="qBU-V1-biP">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoMainLight" translatesAutoresizingMaskIntoConstraints="NO" id="ZW9-ts-aIt">
+                    <rect key="frame" x="60" y="120" width="360" height="113"/>
                     <constraints>
                         <constraint firstAttribute="width" priority="500" constant="360" id="b5o-bZ-hFT"/>
                     </constraints>
@@ -25,13 +22,14 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="ZW9-ts-aIt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="60" id="BOM-P0-QNn"/>
+                <constraint firstItem="ZW9-ts-aIt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="36" id="BOM-P0-QNn"/>
+                <constraint firstItem="ZW9-ts-aIt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="120" id="Dg1-AK-DJe"/>
+                <constraint firstAttribute="bottom" secondItem="qBU-V1-biP" secondAttribute="bottom" id="HwB-Yg-kt1"/>
+                <constraint firstItem="qBU-V1-biP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Idb-15-9Aj"/>
                 <constraint firstAttribute="centerX" secondItem="ZW9-ts-aIt" secondAttribute="centerX" id="Jlk-bc-rTX"/>
-                <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
-                <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
-                <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
-                <constraint firstAttribute="centerY" secondItem="ZW9-ts-aIt" secondAttribute="centerY" id="hWe-FT-2tf"/>
-                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZW9-ts-aIt" secondAttribute="trailing" constant="59.5" id="nKp-I5-c8l"/>
+                <constraint firstAttribute="trailing" secondItem="qBU-V1-biP" secondAttribute="trailing" id="gdG-U9-sgm"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZW9-ts-aIt" secondAttribute="trailing" constant="36" id="nKp-I5-c8l"/>
+                <constraint firstItem="qBU-V1-biP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="sQX-xy-fDc"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -39,6 +37,7 @@
         </view>
     </objects>
     <resources>
-        <image name="LogoMain" width="360" height="113"/>
+        <image name="LogoMainLight" width="360" height="113"/>
+        <image name="MainBackground" width="2048" height="3209"/>
     </resources>
 </document>
