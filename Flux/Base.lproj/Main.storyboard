@@ -157,12 +157,30 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Skn-uC-Ldw" firstAttribute="leading" secondItem="Y8Z-hE-7L5" secondAttribute="leading" id="OUM-xm-7ra"/>
+                            <constraint firstItem="Skn-uC-Ldw" firstAttribute="bottom" secondItem="Y8Z-hE-7L5" secondAttribute="bottomMargin" id="Xkv-Oe-64h"/>
                             <constraint firstItem="Skn-uC-Ldw" firstAttribute="top" secondItem="Y8Z-hE-7L5" secondAttribute="top" id="l0k-n1-gfX"/>
-                            <constraint firstItem="xB1-Fp-s8C" firstAttribute="top" secondItem="Skn-uC-Ldw" secondAttribute="bottom" id="oJN-Y5-YdZ"/>
                             <constraint firstAttribute="trailing" secondItem="Skn-uC-Ldw" secondAttribute="trailing" id="sWc-k4-Y5b"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Back" id="weQ-KO-7jc">
+                            <connections>
+                                <action selector="goBack:" destination="dOV-tf-4cS" id="Qe4-y4-Sz0"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="XuX-mZ-rnv"/>
+                        <barButtonItem title="Forward" id="rGF-76-QBa">
+                            <connections>
+                                <action selector="goForward:" destination="dOV-tf-4cS" id="JcD-NN-B6h"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="nFR-vL-88W"/>
+                        <barButtonItem systemItem="action" id="aK1-ha-Igk"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="backButton" destination="weQ-KO-7jc" id="L6B-aa-2WK"/>
+                        <outlet property="forwardButton" destination="rGF-76-QBa" id="xoH-2z-l2H"/>
                         <outlet property="webView" destination="Skn-uC-Ldw" id="lpK-ka-aVz"/>
                     </connections>
                 </viewController>

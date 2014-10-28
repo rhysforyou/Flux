@@ -14,8 +14,7 @@
 
 @property (strong, nonatomic) NSURL* WebURL;
 
-@property (strong, nonatomic) NSString* Month;
-
-@property NSInteger Year;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardButton;
 
 @end
