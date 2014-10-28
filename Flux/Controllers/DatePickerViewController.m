@@ -95,6 +95,11 @@
 }
 
 - (void)processSearchResults:(NSArray *)results {
+    if ([results count] == 0) {
+        [self.navigationController popViewControllerAnimated:YES];
+        return;
+    }
+
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
         NSMutableDictionary *newCache = [[NSMutableDictionary alloc] init];
         NSCalendar *calendar = self.calendarController.calendar;
