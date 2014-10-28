@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DatePickerViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@protocol PDTSimpleCalendarViewDelegate;
+
+@interface DatePickerViewController : UIViewController <PDTSimpleCalendarViewDelegate>
 
 @property (strong, nonatomic) NSURL* URL;
 

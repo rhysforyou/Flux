@@ -15,7 +15,7 @@
 @implementation MainViewController
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"showDatePicker"]) {
+    if ([segue.identifier isEqualToString:@"performSearch"]) {
         DatePickerViewController *datePickerVC = (DatePickerViewController *)segue.destinationViewController;
         NSURL *url = [NSURL URLWithString:self.URLField.text];
         if (!url.scheme) {
@@ -38,7 +38,7 @@
 #pragma mark - Text Field Delegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [self performSegueWithIdentifier:@"showDatePicker" sender:self];
+    [self performSegueWithIdentifier:@"performSearch" sender:self];
 
     return NO;
 }
