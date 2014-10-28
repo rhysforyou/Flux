@@ -8,7 +8,7 @@
 
 #import "DatePickerViewCell.h"
 
-@interface DatePickerViewCell()
+@interface DatePickerViewCell ()
 
 @end
 
@@ -17,8 +17,8 @@
 @synthesize cellLabel;
 @synthesize cellURL;
 
--(DatePickerViewCell *)copy{
-    DatePickerViewCell *newCell = [[DatePickerViewCell alloc]init];
+- (DatePickerViewCell *)copy {
+    DatePickerViewCell *newCell = [[DatePickerViewCell alloc] init];
     newCell.cellURL = self.cellURL;
     newCell.cellLabel = self.cellLabel;
     return newCell;

@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DatePickerViewController: UICollectionViewController <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+#import "PDTSimpleCalendar.h"
 
-@property(strong, nonatomic) NSString *URL;
+@interface DatePickerViewController : UIViewController <PDTSimpleCalendarViewDelegate>
+
+@property (strong, nonatomic) NSURL *URL;
 
 @end
-

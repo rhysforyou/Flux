@@ -10,13 +10,12 @@
 
 @interface WebViewController : UIViewController <UIWebViewDelegate>
 
-@property(strong,nonatomic)IBOutlet UIWebView *webView;
+@property (strong, nonatomic) IBOutlet UIWebView* webView;
 
-@property(strong,nonatomic)NSURL *WebURL;
+@property (strong, nonatomic) NSURL* WebURL;
 
-@property(strong,nonatomic)NSString *Month;
+@property (strong, nonatomic) NSString* Month;
 
 @property NSInteger Year;
-
 
 @end

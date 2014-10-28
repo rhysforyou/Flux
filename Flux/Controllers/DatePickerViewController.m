@@ -15,157 +15,109 @@
 #import "WaybackCDXEntry.h"
 #import "WebViewController.h"
 
-@interface DatePickerViewController()
+@interface DatePickerViewController ()
 
-@property(strong,nonatomic) NSArray *URLArray;
+@property (nonatomic, strong) NSArray *URLArray;
+@property (nonatomic, strong) NSDictionary *dateCache;
+@property (nonatomic, strong) PDTSimpleCalendarViewController *calendarController;
+@property (nonatomic, strong) WaybackCDXEntry *selectedEntry;
+
 @end
-
 
 @implementation DatePickerViewController
 
-@synthesize URL;
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationItem setTitle:self.URL.host];
 
-NSInteger currentMonth;
-NSInteger currentYear;
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self.navigationItem setTitle:URL];
-    
-    [[WaybackCDXClient sharedClient] searchWithURL:[NSURL URLWithString:URL] accuracy:WaybackCDXClientAccuracyMonth success:^(NSURLSessionDataTask *task, NSArray *responseObject) {
-        self.URLArray = responseObject.copy;
-        [self.collectionView reloadData];
+    [[WaybackCDXClient sharedClient] searchWithURL:self.URL accuracy:WaybackCDXClientAccuracyDay success:^(NSURLSessionDataTask *task, NSArray *responseObject) {
+        [self processSearchResults:responseObject];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        NSLog(@"Unable to load results: %@", error.localizedDescription);
     }];
-    
-    NSDate *now = [NSDate date];
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth | NSCalendarUnitYear fromDate:now];
-    
-    
-    currentMonth= [components month];
-    
-    currentYear= [components year];
-    
-    
-    
 }
 
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    if(section == 0){
-        return currentMonth;
-    }else{
-        return 12;
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showWebView"]) {
+        WebViewController *webViewController = segue.destinationViewController;
+        webViewController.WebURL = self.selectedEntry.accessableURL;
+    } else if ([segue.identifier isEqualToString:@"embedCalendar"]) {
+        self.calendarController = segue.destinationViewController;
+        self.calendarController.delegate = self;
+        self.calendarController.lastDate = [NSDate date];
+        self.calendarController.calendar.timeZone = [NSTimeZone timeZoneWithName:@"GMT"];
+        NSDateComponents *startDateComponents = [[NSDateComponents alloc] init];
+        startDateComponents.day = 1;
+        startDateComponents.month = 1;
+        startDateComponents.year = 1995;
     }
 }
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    
-    return currentYear - 1995 ;
+
+- (BOOL)hasEntryForDate:(NSDate *)date {
+    NSCalendar *calendar = self.calendarController.calendar;
+    NSDateComponents *dateComponents = [calendar components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:date];
+    return self.dateCache[dateComponents] != nil;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    DatePickerViewCell *cell = (DatePickerViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"DatePickerCell" forIndexPath:indexPath];
-    NSString *thisMonthStr=[self getMonthStr:indexPath.row];
-    cell.cellURL = nil;
-    [cell.cellLabel setTextColor:[UIColor lightGrayColor]];
-    //[cell setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
-    NSInteger thisYear = currentYear - indexPath.section;
-    NSInteger thisMonth = indexPath.row + 1;
-    for (WaybackCDXEntry *entry in self.URLArray) {
-        NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth | NSCalendarUnitYear fromDate:entry.timestamp];
-        NSInteger entryMonth= [components month];
-        NSInteger entryYear= [components year];
-        if(entryMonth == thisMonth && entryYear == thisYear){
-            cell.cellURL = entry.accessableURL;
-            [cell.cellLabel setTextColor:[UIColor blackColor]];
-            //[cell setBackgroundColor:[UIColor lightGrayColor]];
-            break;
-        }
-    }
-    [cell.cellLabel setText:thisMonthStr];
-    return cell;
-}
-
--(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsMake(5, 2, 3, 2);
-}
--(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
-    DateHeaderView *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"DateHeader" forIndexPath:indexPath];
-    NSInteger thisYear = currentYear - indexPath.section;
-    NSString *yearStr = [NSString stringWithFormat:@"%ld",(long)thisYear];
-    
-    [header.headerLabel setText:yearStr];
-    
-    return header;
-}
-
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
-    if ([identifier isEqualToString:@"showWeb"]) {
-        NSIndexPath *indexPath = [self.collectionView indexPathsForSelectedItems][0];
-        DatePickerViewCell *cell = (DatePickerViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
-        if(cell.cellURL != nil){
-            return YES;
-        }
+- (void)processSearchResults:(NSArray *)results {
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+        NSMutableDictionary *newCache = [[NSMutableDictionary alloc] init];
+        NSCalendar *calendar = self.calendarController.calendar;
         
-    }
-    return NO;
+        [results enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            NSDate *date = [(WaybackCDXEntry *)obj timestamp];
+            NSDateComponents *components = [calendar components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:date];
+            newCache[components] = @YES;
+        }];
+        
+        self.URLArray = results;
+        self.dateCache = newCache;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            WaybackCDXEntry *firstEntry = self.URLArray[0];
+            self.calendarController.firstDate = firstEntry.timestamp;
+            [self.calendarController.collectionView reloadData];
+        });
+    });
 }
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([segue.identifier isEqualToString:@"showWeb"]) {
-        NSIndexPath *indexPath = [self.collectionView indexPathsForSelectedItems][0];
-        DatePickerViewCell *cell = (DatePickerViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
-        ((WebViewController *)segue.destinationViewController).WebURL = cell.cellURL;
-        ((WebViewController *)segue.destinationViewController).Month = cell.cellLabel.text;
-        ((WebViewController *)segue.destinationViewController).Year = currentYear - indexPath.section;
-        
-        
+
+- (WaybackCDXEntry *)entryForDate:(NSDate *)date {
+    NSCalendar *calendar = self.calendarController.calendar;
+    NSDateComponents *startDateComponents = [calendar components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:date];
+    NSDateComponents *oneDay = [NSDateComponents new];
+    oneDay.day = 1;
+    
+    NSDate *startDate = [calendar dateFromComponents:startDateComponents];
+    NSDate *endDate = [calendar dateByAddingComponents:oneDay toDate:startDate options:0];
+    NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"(timestamp >= %@) && (timestamp < %@)", startDate, endDate];
+    NSArray *filteredResults = [self.URLArray filteredArrayUsingPredicate:datePredicate];
+    
+    if ([filteredResults count] > 0) {
+        return filteredResults[0];
+    } else {
+        return nil;
     }
 }
 
--(NSString *) getMonthStr:(NSInteger) month{
-    NSString *monthStr;
-    switch (month) {
-        case 0:
-            monthStr = @"January";
-            break;
-        case 1:
-            monthStr = @"February";
-            break;
-        case 2:
-            monthStr = @"March";
-            break;
-        case 3:
-            monthStr = @"April";
-            break;
-        case 4:
-            monthStr = @"May";
-            break;
-        case 5:
-            monthStr = @"June";
-            break;
-        case 6:
-            monthStr = @"July";
-            break;
-        case 7:
-            monthStr = @"August";
-            break;
-        case 8:
-            monthStr = @"September";
-            break;
-        case 9:
-            monthStr = @"October";
-            break;
-        case 10:
-            monthStr = @"November";
-            break;
-        case 11:
-            monthStr = @"December";
-            break;
-        default:
-            break;
+#pragma - mark Simple Calendar View Delegate
+
+- (UIColor *)simpleCalendarViewController:(PDTSimpleCalendarViewController *)controller textColorForDate:(NSDate *)date {
+    if ([self hasEntryForDate:date]) {
+        return [UIColor blackColor];
+    } else {
+        return [UIColor lightGrayColor];
     }
-    return monthStr;
+}
+
+- (BOOL)simpleCalendarViewController:(PDTSimpleCalendarViewController *)controller shouldUseCustomColorsForDate:(NSDate *)date {
+    return YES;
+}
+
+- (void)simpleCalendarViewController:(PDTSimpleCalendarViewController *)controller didSelectDate:(NSDate *)date {
+    self.selectedEntry = [self entryForDate:date];
+    if (self.selectedEntry != nil) {
+        [self performSegueWithIdentifier:@"showWebView" sender:self];
+    }
 }
 
 @end
-

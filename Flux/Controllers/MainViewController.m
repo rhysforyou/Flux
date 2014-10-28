@@ -14,23 +14,15 @@
 
 @implementation MainViewController
 
-@synthesize URLField;
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqualToString:@"showDatePicker"]){
-        ((DatePickerViewController *)segue.destinationViewController).URL = URLField.text;
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"performSearch"]) {
+        DatePickerViewController *datePickerVC = (DatePickerViewController *)segue.destinationViewController;
+        NSURL *url = [NSURL URLWithString:self.URLField.text];
+        if (!url.scheme) {
+            url = [NSURL URLWithString:[@"http://" stringByAppendingString:self.URLField.text]];
+        }
+        datePickerVC.URL = url;
     }
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -42,4 +34,13 @@
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillDisappear:animated];
 }
+
+#pragma mark - Text Field Delegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self performSegueWithIdentifier:@"performSearch" sender:self];
+
+    return NO;
+}
+
 @end

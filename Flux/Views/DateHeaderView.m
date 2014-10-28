@@ -8,13 +8,12 @@
 
 #import "DateHeaderView.h"
 
-@interface DateHeaderView()
+@interface DateHeaderView ()
 
 @end
 
 @implementation DateHeaderView
 
 @synthesize headerLabel;
-
 
 @end

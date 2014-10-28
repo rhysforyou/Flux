@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DateHeaderView: UICollectionReusableView
+@interface DateHeaderView : UICollectionReusableView
 
-@property(strong,nonatomic)IBOutlet UILabel *headerLabel;
+@property (strong, nonatomic) IBOutlet UILabel *headerLabel;
 
 @end
