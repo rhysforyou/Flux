@@ -107,7 +107,9 @@
         [results enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             NSDate *date = [(WaybackCDXEntry *)obj timestamp];
             NSDateComponents *components = [calendar components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:date];
-            newCache[components] = @YES;
+            if (components) {
+                newCache[components] = @YES;
+            }
         }];
         
         self.URLArray = results;
