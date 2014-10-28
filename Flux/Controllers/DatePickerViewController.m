@@ -21,14 +21,32 @@
 @property (nonatomic, strong) NSDictionary *dateCache;
 @property (nonatomic, strong) PDTSimpleCalendarViewController *calendarController;
 @property (nonatomic, strong) WaybackCDXEntry *selectedEntry;
+@property (nonatomic, strong) UIImageView *loadingView;
 
 @end
 
 @implementation DatePickerViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    UIImageView *loadingView = [[UIImageView alloc] initWithFrame:self.view.frame];
+    loadingView.animationImages = @[ [UIImage imageNamed:@"LoadingSpinner1"],
+                                     [UIImage imageNamed:@"LoadingSpinner2"],
+                                     [UIImage imageNamed:@"LoadingSpinner3"] ];
+    loadingView.animationDuration = 1.0;
+    loadingView.backgroundColor = [UIColor whiteColor];
+    loadingView.contentMode = UIViewContentModeCenter;
+
+    self.loadingView = loadingView;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationItem setTitle:self.URL.host];
+
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimating];
 
     [[WaybackCDXClient sharedClient] searchWithURL:self.URL accuracy:WaybackCDXClientAccuracyDay success:^(NSURLSessionDataTask *task, NSArray *responseObject) {
         [self processSearchResults:responseObject];
@@ -77,6 +95,13 @@
             WaybackCDXEntry *firstEntry = self.URLArray[0];
             self.calendarController.firstDate = firstEntry.timestamp;
             [self.calendarController.collectionView reloadData];
+            
+            [UIView animateWithDuration:0.5 animations:^{
+                self.loadingView.alpha = 0.0f;
+            } completion:^(BOOL finished) {
+                [self.loadingView removeFromSuperview];
+                self.loadingView.alpha = 1.0f;
+            }];
         });
     });
 }
@@ -86,12 +111,12 @@
     NSDateComponents *startDateComponents = [calendar components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:date];
     NSDateComponents *oneDay = [NSDateComponents new];
     oneDay.day = 1;
-    
+
     NSDate *startDate = [calendar dateFromComponents:startDateComponents];
     NSDate *endDate = [calendar dateByAddingComponents:oneDay toDate:startDate options:0];
     NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"(timestamp >= %@) && (timestamp < %@)", startDate, endDate];
     NSArray *filteredResults = [self.URLArray filteredArrayUsingPredicate:datePredicate];
-    
+
     if ([filteredResults count] > 0) {
         return filteredResults[0];
     } else {
