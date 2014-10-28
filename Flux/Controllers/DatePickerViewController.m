@@ -19,6 +19,7 @@
 @interface DatePickerViewController ()
 
 @property (nonatomic, strong) NSArray *URLArray;
+@property (nonatomic, strong) NSDictionary *dateCache;
 @property (nonatomic, strong) NSDateComponents *currentDateComponents;
 @property (nonatomic, strong) PDTSimpleCalendarViewController *calendarController;
 
@@ -31,8 +32,7 @@
     [self.navigationItem setTitle:self.URL.host];
 
     [[WaybackCDXClient sharedClient] searchWithURL:self.URL accuracy:WaybackCDXClientAccuracyDay success:^(NSURLSessionDataTask *task, NSArray *responseObject) {
-        self.URLArray = [responseObject copy];
-        [self.calendarController.collectionView reloadData];
+        [self processSearchResults:responseObject];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"Unable to load results: %@", error.localizedDescription);
     }];
@@ -63,15 +63,28 @@
 
 - (BOOL)hasEntryForDate:(NSDate *)date {
     NSCalendar *calendar = self.calendarController.calendar;
-    NSDateComponents *startDateComponents = [calendar components:NSCalendarUnitDay | NSCalendarUnitWeekOfMonth | NSCalendarUnitYear fromDate:date];
-    NSDateComponents *oneDay = [NSDateComponents new];
-    oneDay.day = 1;
-    
-    NSDate *startDate = [calendar dateFromComponents:startDateComponents];
-    NSDate *endDate = [calendar dateByAddingComponents:oneDay toDate:startDate options:0];
-    NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"(timestamp >= %@) && (timestamp < %@)", startDate, endDate];
-    NSArray *filteredResults = [self.URLArray filteredArrayUsingPredicate:datePredicate];
-    return filteredResults.count > 0;
+    NSDateComponents *dateComponents = [calendar components:NSCalendarUnitDay | NSCalendarUnitWeekOfMonth | NSCalendarUnitYear fromDate:date];
+    return self.dateCache[dateComponents] != nil;
+}
+
+- (void)processSearchResults:(NSArray *)results {
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+        NSMutableDictionary *newCache = [[NSMutableDictionary alloc] init];
+        NSCalendar *calendar = self.calendarController.calendar;
+        
+        [results enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            NSDate *date = [(WaybackCDXEntry *)obj timestamp];
+            NSDateComponents *components = [calendar components:NSCalendarUnitDay | NSCalendarUnitWeekOfMonth | NSCalendarUnitYear fromDate:date];
+            newCache[components] = @YES;
+        }];
+        
+        self.URLArray = results;
+        self.dateCache = newCache;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.calendarController.collectionView reloadData];
+        });
+    });
 }
 
 #pragma - mark Simple Calendar View Delegate
