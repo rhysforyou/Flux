@@ -21,27 +21,32 @@
                                 <rect key="frame" x="120" y="297" width="360" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKl-Ze-wOy">
-                                        <rect key="frame" x="314" y="0.0" width="46" height="30"/>
+                                        <rect key="frame" x="300" y="0.0" width="60" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="MxU-ls-Hz9"/>
-                                            <constraint firstAttribute="width" constant="46" id="wIx-XO-dt5"/>
+                                            <constraint firstAttribute="width" constant="60" id="wIx-XO-dt5"/>
                                         </constraints>
                                         <state key="normal" title="Go →">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <segue destination="Wau-sn-3gC" kind="show" identifier="showDatePicker" id="Dp8-6c-2ay"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Uk-kn-g59">
-                                        <rect key="frame" x="0.0" y="0.0" width="289" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search by URL…" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Uk-kn-g59">
+                                        <rect key="frame" x="0.0" y="0.0" width="292" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="uFB-Yq-AkR"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="IKl-Ze-wOy" firstAttribute="leading" secondItem="9Uk-kn-g59" secondAttribute="trailing" constant="25" id="ItH-O1-O7j"/>
+                                    <constraint firstItem="IKl-Ze-wOy" firstAttribute="leading" secondItem="9Uk-kn-g59" secondAttribute="trailing" constant="8" symbolic="YES" id="ItH-O1-O7j"/>
                                     <constraint firstItem="9Uk-kn-g59" firstAttribute="top" secondItem="ucJ-eX-aDN" secondAttribute="top" id="M9g-p9-DyB"/>
                                     <constraint firstAttribute="trailing" secondItem="IKl-Ze-wOy" secondAttribute="trailing" id="PvH-ej-CCo"/>
                                     <constraint firstAttribute="bottom" secondItem="IKl-Ze-wOy" secondAttribute="bottom" id="Rwi-Wh-CJa"/>

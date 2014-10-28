@@ -8,7 +8,7 @@
 
 #import "WebViewController.h"
 
-@interface WebViewController()
+@interface WebViewController ()
 
 @end
 
@@ -18,20 +18,17 @@
 @synthesize WebURL;
 @synthesize Month;
 @synthesize Year;
--(void)viewDidLoad{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *NVtitle = [[NSString alloc]initWithFormat:@"%@, %ld",Month,(long)Year];
+    NSString *NVtitle = [[NSString alloc] initWithFormat:@"%@, %ld", Month, (long)Year];
     [self.navigationItem setTitle:NVtitle];
     [webView setDelegate:self];
-    NSURLRequest *pageRequest = [[NSURLRequest alloc]initWithURL:WebURL];
+    NSURLRequest *pageRequest = [[NSURLRequest alloc] initWithURL:WebURL];
     [webView loadRequest:pageRequest];
-    NSLog(@"%@",WebURL);
-    
+    NSLog(@"%@", WebURL);
 }
 
-
-
--(void)webViewDidFinishLoad:(UIWebView *)webView{
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
     [webView stringByEvaluatingJavaScriptFromString:@"__wm.h();"];
 }
 @end

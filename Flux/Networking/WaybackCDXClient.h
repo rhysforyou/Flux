@@ -35,8 +35,8 @@ typedef NS_ENUM(NSInteger, WaybackCDXClientAccuracy) {
  @param failure a callback called when there were issues with the request.
  */
 - (NSURLSessionDataTask *)searchWithURL:(NSURL *)URL
-                                  accuracy:(WaybackCDXClientAccuracy)accuracy
-                                   success:(WaybackCDXClientSuccess)success
-                                   failure:(WaybackCDXClientFailure)failure;
+                               accuracy:(WaybackCDXClientAccuracy)accuracy
+                                success:(WaybackCDXClientSuccess)success
+                                failure:(WaybackCDXClientFailure)failure;
 
 @end
