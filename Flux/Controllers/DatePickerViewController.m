@@ -37,11 +37,6 @@
     }];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self.calendarController scrollToDate:[NSDate date] animated:NO];
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showWebView"]) {
         WebViewController *webViewController = segue.destinationViewController;
@@ -55,7 +50,6 @@
         startDateComponents.day = 1;
         startDateComponents.month = 1;
         startDateComponents.year = 1995;
-        self.calendarController.firstDate = [self.calendarController.calendar dateFromComponents:startDateComponents];
     }
 }
 
@@ -80,6 +74,8 @@
         self.dateCache = newCache;
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            WaybackCDXEntry *firstEntry = self.URLArray[0];
+            self.calendarController.firstDate = firstEntry.timestamp;
             [self.calendarController.collectionView reloadData];
         });
     });
